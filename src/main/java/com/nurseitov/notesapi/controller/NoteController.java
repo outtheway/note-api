@@ -1,6 +1,7 @@
 package com.nurseitov.notesapi.controller;
 
 import com.nurseitov.notesapi.model.Note;
+import com.nurseitov.notesapi.service.NoteService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
