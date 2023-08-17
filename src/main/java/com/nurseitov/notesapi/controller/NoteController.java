@@ -6,6 +6,8 @@ import com.nurseitov.notesapi.service.NoteService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @AllArgsConstructor
 public class NoteController {
@@ -18,7 +20,7 @@ public class NoteController {
     }
 
     @GetMapping("/get-note/{id}")
-    public Note getNote(@PathVariable Long id) {
+    public Optional<Note> getNote(@PathVariable Long id) {
         return noteService.getNote(id);
     }
 }

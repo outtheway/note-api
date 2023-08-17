@@ -21,8 +21,8 @@ public class NoteServiceImpl implements NoteService{
     }
 
     @Override
-    public Note getNote(Long id) {
-        Note note = noteRepo.getReferenceById(id);
+    public Optional<Note> getNote(Long id) {
+        Optional<Note> note = noteRepo.findById(id);
         return note;
     }
 }
