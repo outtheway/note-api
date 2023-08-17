@@ -5,6 +5,8 @@ import com.nurseitov.notesapi.repo.NoteRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class NoteServiceImpl implements NoteService{
@@ -16,5 +18,11 @@ public class NoteServiceImpl implements NoteService{
         note.setTitle(title);
         note.setContent(content);
         noteRepo.save(note);
+    }
+
+    @Override
+    public Note getNote(Long id) {
+        Note note = noteRepo.getReferenceById(id);
+        return note;
     }
 }
