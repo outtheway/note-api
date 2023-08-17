@@ -20,7 +20,7 @@ public class NoteController {
     }
 
     @GetMapping("/get-note/{id}")
-    public Optional<Note> getNote(@PathVariable Long id) {
+    public Note getNote(@PathVariable Long id) {
         return noteService.getNote(id);
     }
 

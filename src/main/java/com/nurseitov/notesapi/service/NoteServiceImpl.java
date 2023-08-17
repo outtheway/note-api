@@ -5,8 +5,6 @@ import com.nurseitov.notesapi.repo.NoteRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 @AllArgsConstructor
 public class NoteServiceImpl implements NoteService{
@@ -21,8 +19,8 @@ public class NoteServiceImpl implements NoteService{
     }
 
     @Override
-    public Optional<Note> getNote(Long id) {
-        Optional<Note> note = noteRepo.findById(id);
+    public Note getNote(Long id) {
+        Note note = noteRepo.findById(id).orElse(null);
         return note;
     }
 
@@ -33,10 +31,10 @@ public class NoteServiceImpl implements NoteService{
 
     @Override
     public void updateNote(Long id, String title, String content) {
-        Optional<Note> note = noteRepo.findById(id);
+        Note note = noteRepo.findById(id).orElse(null);
 
-        note.get().setTitle(title);
-        note.get().setContent(content);
-        noteRepo.save(note.get());
+        note.setTitle(title);
+        note.setContent(content);
+        noteRepo.save(note);
     }
 }
