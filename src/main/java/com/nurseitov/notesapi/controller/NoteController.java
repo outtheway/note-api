@@ -28,4 +28,9 @@ public class NoteController {
     public void deleteNote(@RequestParam Long id) {
         noteService.deleteNote(id);
     }
+
+    @PutMapping("/update-note/{id}")
+    public void updateNote(@PathVariable Long id, @RequestBody NoteDTO note) {
+        noteService.updateNote(id, note.getTitle(), note.getContent());
+    }
 }

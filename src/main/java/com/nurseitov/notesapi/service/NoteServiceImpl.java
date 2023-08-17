@@ -30,4 +30,13 @@ public class NoteServiceImpl implements NoteService{
     public void deleteNote(Long id) {
         noteRepo.deleteById(id);
     }
+
+    @Override
+    public void updateNote(Long id, String title, String content) {
+        Optional<Note> note = noteRepo.findById(id);
+
+        note.get().setTitle(title);
+        note.get().setContent(content);
+        noteRepo.save(note.get());
+    }
 }

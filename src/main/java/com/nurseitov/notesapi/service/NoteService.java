@@ -10,4 +10,6 @@ public interface NoteService {
     Optional<Note> getNote(Long id);
 
     void deleteNote(Long id);
+
+    void updateNote(Long id, String title, String content);
 }
