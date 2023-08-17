@@ -8,4 +8,6 @@ public interface NoteService {
     void createNote(String title, String content);
 
     Optional<Note> getNote(Long id);
+
+    void deleteNote(Long id);
 }

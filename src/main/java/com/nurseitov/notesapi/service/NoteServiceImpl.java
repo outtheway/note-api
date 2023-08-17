@@ -25,4 +25,9 @@ public class NoteServiceImpl implements NoteService{
         Optional<Note> note = noteRepo.findById(id);
         return note;
     }
+
+    @Override
+    public void deleteNote(Long id) {
+        noteRepo.deleteById(id);
+    }
 }
